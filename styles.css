@@ -60,8 +60,15 @@ body {
     width: 861px; /* Adjust this as needed to match the size of the first image */
     height: 918px;
   }
-  
+
   img[alt="Python Isometric Project"] {
     width: 861px; /* Adjust this as needed to match the size of the first image */
     height: 918px;
   }
+
+  /* Ensure the PIR and Shelf images have the same height */
+img[alt="PIR LED test"],
+img[alt="Full Shelf"] {
+  height: 1413px / 2; /* Adjust the height as needed */
+  width: 1061px / 2;
+}
