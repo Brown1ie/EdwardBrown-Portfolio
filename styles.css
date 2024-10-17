@@ -69,6 +69,6 @@ body {
   /* Ensure the PIR and Shelf images have the same height */
 img[alt="PIR LED test"],
 img[alt="Full Shelf"] {
-  height: 1413px / 2; /* Adjust the height as needed */
-  width: 1061px / 2;
+  height: 706.5px; /* Adjust the height as needed */
+  width: 530.5px;
 }
