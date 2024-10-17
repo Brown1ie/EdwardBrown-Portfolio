@@ -1,9 +1,13 @@
+/* Apply a navy background and white text */
 body {
+    background-color: #000080;
+    color: #ffffff;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
   }
   
+  /* Header styling */
   header {
     background-color: #333;
     color: #fff;
@@ -25,6 +29,7 @@ body {
     text-decoration: none;
   }
   
+  /* Section and footer styling */
   section {
     padding: 2rem;
   }
@@ -36,3 +41,8 @@ body {
     padding: 1rem;
   }
   
+  /* Image styling */
+  img {
+    border: 2px solid red;
+    margin-top: 1rem;
+  }
