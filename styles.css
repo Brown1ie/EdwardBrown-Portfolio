@@ -56,8 +56,8 @@ section#Main\ Projects > div {
 
 /* Image styling */
 img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    width: auto;
+    height: auto; /* Maintain original dimensions */
     object-fit: cover; /* Ensures the image covers the set dimensions without distortion */
     border: 2px solid red;
     margin-top: 1rem;
@@ -71,9 +71,10 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column; /* Stack the elements vertically */
 }
 
-/* Image styling */
+/* Image styling within the carousel */
 .image-carousel img {
     display: none;
     opacity: 0.5;
