@@ -18,30 +18,39 @@
       </ul>
     </nav>
   </header>
-  
+
   <section id="about">
     <h2>About Me</h2>
     <p>Recently finished Year 13, completing A Levels in Maths, Computer Science and Product Design. I enjoyed my chosen subjects very much which has reinforced to choose a software development career. I enjoy working as part of a team, I am a reliable, trustworthy, loyal and a conscientious person who is eager to develop further skills.</p>
     <p>Please note not all projects shown, I have only included my most unique/favourite projects.</p>
   </section>
-  
+
   <section id="Main Projects">
     <h2>Projects</h2>
     <div>
       <h3>Python Raycaster - 2023-2024</h3>
       <p>For my computing A-level coursework, I created a raycasting project in python using the Pygame package and assets found online. Designed to replicate the rendering technique of Wolfenstein3D but have the visual style of DOOM 1993, my program has a unique visual design with customisable maps, modes and screen size.Whilst starting as a simple raycasting environment, I later added sprites, randomly generated maps, interactable areas of the map and more. This project achieved me nearly full marks for my coursework.</p>
-      <img src="https://raw.githubusercontent.com/Brown1ie/Python-Raycast/refs/heads/Final-Version/Example.png" alt="Python Raycaster Project">
+      <div class="image-carousel">
+        <img src="https://raw.githubusercontent.com/Brown1ie/Python-Raycast/refs/heads/Final-Version/Example.png" class="main-image">
+        <img src="image2.jpg" class="hidden">
+        <img src="image3.jpg" class="hidden">
+        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="next" onclick="changeImage(1)">&#10095;</button>
+      </div>
       <p>Link to<a href="https://github.com/Brown1ie/Python-Raycast/tree/Final-Version"> GitHub</a> repository </p>
       <p> For more documentaion, please see <a href="https://docs.google.com/document/d/10s5nPzDT7BTaLAKKuZecQqhRJ1ShbI-v/edit?usp=sharing&ouid=114016919117728992637&rtpof=true&sd=true">Coursework Documentation</a> </p>
-
     </div>
 
     <div>
-        <h3>MicroPython PIR LED control System - 2024</h3>
-        <p>This was designed for my PRoduct Design A-Level coursework, to create a motion activated LED system. I coded it to be as simple as possible as it is only needed to control a LED strip, and I feared over complciating my code would create a higher chance of errors occuring. As the code was uploaded to a microcontroller, the whole system would have to be dismantled and desoldered to change the code if I found an error when testing. The system works as intended, activating the lights when the sensor detects motion and deactivating it when no more motion is detected. It uses a Raspberry Pi Pico microcontroller in a custom 3D printed enclosure. The PIR and LED are controlled by this microncontroller. Enclosure designed on Solidworks, and joined to the inside of the shelf to hide it. The PIR sensor has a seperate enclosure attatched to the Pico enclosure. These enclosures are shown by the technical drawing below. System works as intended.</p>
-        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/PIRimage.png" alt="PIR LED test">
-        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/Shelfimage.png" alt="Full Shelf">
-        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/Picobox Outline.png" alt="Picobox">
+      <h3>MicroPython PIR LED control System - 2024</h3>
+      <p>This was designed for my PRoduct Design A-Level coursework, to create a motion activated LED system. I coded it to be as simple as possible as it is only needed to control a LED strip, and I feared over complciating my code would create a higher chance of errors occuring. As the code was uploaded to a microcontroller, the whole system would have to be dismantled and desoldered to change the code if I found an error when testing. The system works as intended, activating the lights when the sensor detects motion and deactivating it when no more motion is detected. It uses a Raspberry Pi Pico microcontroller in a custom 3D printed enclosure. The PIR and LED are controlled by this microncontroller. Enclosure designed on Solidworks, and joined to the inside of the shelf to hide it. The PIR sensor has a seperate enclosure attatched to the Pico enclosure. These enclosures are shown by the technical drawing below. System works as intended.</p>
+      <div class="image-carousel">
+        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/PIRimage.png" class="main-image">
+        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/Shelfimage.png" class="hidden">
+        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/Picobox Outline.png" class="hidden">
+        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="next" onclick="changeImage(1)">&#10095;</button>
+      </div>
     </div>
 
     <div>
@@ -51,21 +60,44 @@
       <ul> To move up - space bar</ul>
       <ul> To move down - shift key</ul>
       <ul> To swap material - press 1, 2 or 3</ul>
-      <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Example.png" alt="Python Isometric Project">
-      <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Multilayer Example.png" alt="Python Isometric Project (Multilayer mode)">
+      <div class="image-carousel">
+        <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Example.png" class="main-image">
+        <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Multilayer Example.png" class="hidden">
+        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="next" onclick="changeImage(1)">&#10095;</button>
+      </div>
       <p>Link to<a href="https://github.com/Brown1ie/Isometric-Building/tree/main"> GitHub</a> repository</p>
-
     </div>
-    
   </section>
-  
+
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: Edward.a.brown@icloud.com</p>
   </section>
-  
+
   <footer>
     <p>&copy; 2024 Edward Brown</p>
   </footer>
+
+  <script>
+    let currentImageIndex = 0;
+
+    function changeImage(direction) {
+      const carousels = document.querySelectorAll(".image-carousel");
+      carousels.forEach(carousel => {
+        const images = carousel.querySelectorAll("img");
+        images[currentImageIndex].classList.add("hidden");
+        currentImageIndex += direction;
+
+        if (currentImageIndex >= images.length) {
+          currentImageIndex = 0;
+        } else if (currentImageIndex < 0) {
+          currentImageIndex = images.length - 1;
+        }
+
+        images[currentImageIndex].classList.remove("hidden");
+      });
+    }
+  </script>
 </body>
 </html>
