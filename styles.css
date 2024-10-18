@@ -64,26 +64,30 @@ img {
     border: 2px solid red;
     margin-top: 1rem;
     animation: fadeIn 2s ease-in-out;
-  }
-  
-  /* Styling for the image carousel */
-  .image-carousel {
+}
+
+/* Styling for the image carousel */
+.image-carousel {
     position: relative;
     text-align: center;
-  }
-  
-  .image-carousel img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-carousel img {
     display: none;
     opacity: 0.5;
     transition: opacity 0.5s ease;
-  }
-  
-  .image-carousel img.visible {
+}
+
+.image-carousel img.visible {
     display: block;
     opacity: 1;
-  }
-  
-  button.prev, button.next {
+}
+
+/* Arrow button styling */
+button.prev, button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -92,12 +96,12 @@ img {
     color: white;
     padding: 10px;
     cursor: pointer;
-  }
-  
-  button.prev {
+}
+
+button.prev {
     left: 10px;
-  }
-  
-  button.next {
+}
+
+button.next {
     right: 10px;
-  }
+}
