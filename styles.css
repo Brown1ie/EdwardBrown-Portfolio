@@ -58,8 +58,8 @@ section#Main\ Projects > div {
 img {
     width: 100%;
     height: auto; /* Maintain aspect ratio */
-    max-width: 100%; /* Set max dimensions for smaller devices */
-    max-height: 100%;
+    max-width: 1200px; /* Set max dimensions for smaller devices */
+    max-height: 1200px;
     object-fit: cover; /* Ensures the image covers the set dimensions without distortion */
     border: 2px solid red;
     margin-top: 1rem;
