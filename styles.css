@@ -76,11 +76,13 @@ img {
     display: none;
     opacity: 0.5;
     transition: opacity 0.5s ease;
+    margin: 0 auto;
   }
   
   .image-carousel img.visible {
     display: block;
     opacity: 1;
+    margin: 0 auto;
   }
   
   button.prev, button.next {
