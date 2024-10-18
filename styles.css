@@ -51,10 +51,13 @@ body {
   /* Image styling */
   img {
     width: 100%;
-    height: auto;
+    height: auto; /* Maintain aspect ratio */
+    max-width: 800px; /* Set max dimensions for smaller devices */
+    max-height: 800px; 
+    object-fit: cover; /* Ensures the image covers the set dimensions without distortion */
     border: 2px solid red;
     margin-top: 1rem;
-    max-width: 100%;
+    
     
   }
   
