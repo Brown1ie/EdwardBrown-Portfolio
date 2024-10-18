@@ -32,10 +32,10 @@
       <p>For my computing A-level coursework, I created a raycasting project in python using the Pygame package and assets found online. Designed to replicate the rendering technique of Wolfenstein3D but have the visual style of DOOM 1993, my program has a unique visual design with customisable maps, modes and screen size.Whilst starting as a simple raycasting environment, I later added sprites, randomly generated maps, interactable areas of the map and more. This project achieved me nearly full marks for my coursework.</p>
       <div class="image-carousel">
         <img src="https://raw.githubusercontent.com/Brown1ie/Python-Raycast/refs/heads/Final-Version/Example.png" class="main-image">
-        <img src="image2.jpg" class="hidden">
+        <img src="https://raw.githubusercontent.com/Brown1ie/Python-Raycast/refs/heads/Final-Version/Example.png" class="hidden">
         <img src="image3.jpg" class="hidden">
-        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
-        <button class="next" onclick="changeImage(1)">&#10095;</button>
+        <button class="prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <button class="next" onclick="changeImage(this, 1)">&#10095;</button>
       </div>
       <p>Link to<a href="https://github.com/Brown1ie/Python-Raycast/tree/Final-Version"> GitHub</a> repository </p>
       <p> For more documentaion, please see <a href="https://docs.google.com/document/d/10s5nPzDT7BTaLAKKuZecQqhRJ1ShbI-v/edit?usp=sharing&ouid=114016919117728992637&rtpof=true&sd=true">Coursework Documentation</a> </p>
@@ -48,8 +48,8 @@
         <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/PIRimage.png" class="main-image">
         <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/Shelfimage.png" class="hidden">
         <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/Picobox Outline.png" class="hidden">
-        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
-        <button class="next" onclick="changeImage(1)">&#10095;</button>
+        <button class="prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <button class="next" onclick="changeImage(this, 1)">&#10095;</button>
       </div>
     </div>
 
@@ -63,8 +63,8 @@
       <div class="image-carousel">
         <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Example.png" class="main-image">
         <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Multilayer Example.png" class="hidden">
-        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
-        <button class="next" onclick="changeImage(1)">&#10095;</button>
+        <button class="prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <button class="next" onclick="changeImage(this, 1)">&#10095;</button>
       </div>
       <p>Link to<a href="https://github.com/Brown1ie/Isometric-Building/tree/main"> GitHub</a> repository</p>
     </div>
@@ -80,24 +80,34 @@
   </footer>
 
   <script>
-    let currentImageIndex = 0;
+    function changeImage(button, direction) {
+      const carousel = button.parentElement;
+      const images = carousel.querySelectorAll("img");
+      let currentImageIndex = Array.from(images).findIndex(image => !image.classList.contains("hidden"));
 
-    function changeImage(direction) {
+      images[currentImageIndex].classList.add("hidden");
+      currentImageIndex += direction;
+
+      if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+      } else if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+      }
+
+      images[currentImageIndex].classList.remove("hidden");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
       const carousels = document.querySelectorAll(".image-carousel");
       carousels.forEach(carousel => {
         const images = carousel.querySelectorAll("img");
-        images[currentImageIndex].classList.add("hidden");
-        currentImageIndex += direction;
-
-        if (currentImageIndex >= images.length) {
-          currentImageIndex = 0;
-        } else if (currentImageIndex < 0) {
-          currentImageIndex = images.length - 1;
-        }
-
-        images[currentImageIndex].classList.remove("hidden");
+        images.forEach((img, index) => {
+          if (index !== 0) {
+            img.classList.add("hidden");
+          }
+        });
       });
-    }
+    });
   </script>
 </body>
 </html>
