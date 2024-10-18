@@ -47,25 +47,58 @@ body {
     margin-bottom: 2rem;
     padding: 1rem;
   }
-
+  
   /* Add keyframes for the fade-in animation */
-    @keyframes fadeIn {
+  @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
   }
-  
+
   /* Image styling */
-  img {
+img {
     width: 100%;
     height: auto; /* Maintain aspect ratio */
     max-width: 1000px; /* Set max dimensions for smaller devices */
-    max-height: 1000px; 
+    max-height: 1000px;
     object-fit: cover; /* Ensures the image covers the set dimensions without distortion */
     border: 2px solid red;
     margin-top: 1rem;
-    animation: fadeIn 2s ease-in-out; 
-    
-
-    
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* Styling for the image carousel */
+  .image-carousel {
+    position: relative;
+    text-align: center;
+  }
+  
+  .image-carousel img {
+    display: none;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+  }
+  
+  .image-carousel img.visible {
+    display: block;
+    opacity: 1;
+  }
+  
+  button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button.prev {
+    left: 10px;
+  }
+  
+  button.next {
+    right: 10px;
   }
   

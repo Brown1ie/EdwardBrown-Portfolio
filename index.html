@@ -31,9 +31,8 @@
       <h3>Python Raycaster - 2023-2024</h3>
       <p>For my computing A-level coursework, I created a raycasting project in python using the Pygame package and assets found online. Designed to replicate the rendering technique of Wolfenstein3D but have the visual style of DOOM 1993, my program has a unique visual design with customisable maps, modes and screen size.Whilst starting as a simple raycasting environment, I later added sprites, randomly generated maps, interactable areas of the map and more. This project achieved me nearly full marks for my coursework.</p>
       <div class="image-carousel">
-        <img src="https://raw.githubusercontent.com/Brown1ie/Python-Raycast/refs/heads/Final-Version/Example.png" class="main-image">
+        <img src="https://raw.githubusercontent.com/Brown1ie/Python-Raycast/refs/heads/Final-Version/Example.png" class="visible">
         <img src="https://raw.githubusercontent.com/Brown1ie/Python-Raycast/refs/heads/Final-Version/Example2.png" class="hidden">
-        
         <button class="prev" onclick="changeImage(this, -1)">&#10094;</button>
         <button class="next" onclick="changeImage(this, 1)">&#10095;</button>
       </div>
@@ -45,9 +44,9 @@
       <h3>MicroPython PIR LED control System - 2024</h3>
       <p>This was designed for my PRoduct Design A-Level coursework, to create a motion activated LED system. I coded it to be as simple as possible as it is only needed to control a LED strip, and I feared over complciating my code would create a higher chance of errors occuring. As the code was uploaded to a microcontroller, the whole system would have to be dismantled and desoldered to change the code if I found an error when testing. The system works as intended, activating the lights when the sensor detects motion and deactivating it when no more motion is detected. It uses a Raspberry Pi Pico microcontroller in a custom 3D printed enclosure. The PIR and LED are controlled by this microncontroller. Enclosure designed on Solidworks, and joined to the inside of the shelf to hide it. The PIR sensor has a seperate enclosure attatched to the Pico enclosure. These enclosures are shown by the technical drawing below. System works as intended.</p>
       <div class="image-carousel">
-        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/PIRimage.png" class="main-image">
+        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/PIRimage.png" class="visible">
         <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/Shelfimage.png" class="hidden">
-        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/Picobox Outline.png" class="hidden">
+        <img src="https://github.com/Brown1ie/EdwardBrown-Portfolio/raw/main/Picobox outline.png" class="hidden">
         <button class="prev" onclick="changeImage(this, -1)">&#10094;</button>
         <button class="next" onclick="changeImage(this, 1)">&#10095;</button>
       </div>
@@ -61,7 +60,7 @@
       <ul> To move down - shift key</ul>
       <ul> To swap material - press 1, 2 or 3</ul>
       <div class="image-carousel">
-        <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Example.png" class="main-image">
+        <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Example.png" class="visible">
         <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Multilayer Example.png" class="hidden">
         <button class="prev" onclick="changeImage(this, -1)">&#10094;</button>
         <button class="next" onclick="changeImage(this, 1)">&#10095;</button>
@@ -83,8 +82,9 @@
     function changeImage(button, direction) {
       const carousel = button.parentElement;
       const images = carousel.querySelectorAll("img");
-      let currentImageIndex = Array.from(images).findIndex(image => !image.classList.contains("hidden"));
+      let currentImageIndex = Array.from(images).findIndex(image => image.classList.contains("visible"));
 
+      images[currentImageIndex].classList.remove("visible");
       images[currentImageIndex].classList.add("hidden");
       currentImageIndex += direction;
 
@@ -95,6 +95,7 @@
       }
 
       images[currentImageIndex].classList.remove("hidden");
+      images[currentImageIndex].classList.add("visible");
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -104,10 +105,11 @@
         images.forEach((img, index) => {
           if (index !== 0) {
             img.classList.add("hidden");
+          } else {
+            img.classList.add("visible");
           }
         });
       });
     });
   </script>
 </body>
-</html>
