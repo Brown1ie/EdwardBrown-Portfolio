@@ -53,22 +53,26 @@
     </div>
 
     <div>
-      <h3>Isometric Project - 2023</h3>
-      <p>This was a simple Isometric game with a building and deleting mechanic, made for a school project. The map is generated from information provided by the user. The game has a fully controllable camera, controlled with WASD, and then the player moves with the arrow keys. Other controls include: </p>
-      <ul> To build - left click</ul>
-      <ul> To move up - space bar</ul>
-      <ul> To move down - shift key</ul>
-      <ul> To swap material - press 1, 2 or 3</ul>
-      <div class="image-carousel">
-        <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Example.png" class="visible">
-        <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Multilayer Example.png" class="hidden">
-        <button class="prev" onclick="changeImage(this, -1)">&#10094;</button>
-        <button class="next" onclick="changeImage(this, 1)">&#10095;</button>
-      </div>
-      <p>Link to<a href="https://github.com/Brown1ie/Isometric-Building/tree/main"> GitHub</a> repository</p>
-      <h3>Play the Demo!</h3>
-      <iframe src="https://brown1ie.github.io/WorldSpawner-Web-Demo/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-      <p>If you’re having trouble interacting with the embedded demo, <a href="https://your-username.github.io/your-repository/" target="_blank">click here</a> to open it in a new tab. The demo in general is quite buggy as it struggles with all the images being drawn on a web application.</p>
+        <h3>Isometric Project - 2023</h3>
+        <p>This was a simple Isometric game with a building and deleting mechanic, made for a school project. The map is generated from information provided by the user. The game has a fully controllable camera, controlled with WASD, and then the player moves with the arrow keys. Other controls include: </p>
+        <ul>
+          <li>To build - left click</li>
+          <li>To move up - space bar</li>
+          <li>To move down - shift key</li>
+          <li>To swap material - press 1, 2 or 3</li>
+        </ul>
+        <div class="image-carousel">
+          <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Example.png" class="visible">
+          <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Multilayer Example.png" class="hidden">
+          <button class="prev" onclick="changeImage(this, -1)">&#10094;</button>
+          <button class="next" onclick="changeImage(this, 1)">&#10095;</button>
+        </div>
+        <p>Link to <a href="https://github.com/Brown1ie/Isometric-Building/tree/main">GitHub</a> repository</p>
+        <h3>Play the Demo!</h3>
+        <button onclick="showDemo()">Show Demo</button>
+        <div id="demoContainer" style="display: none;">
+        <iframe src="https://brown1ie.github.io/WorldSpawner-Web-Demo/" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+        <p>If you’re having trouble interacting with the embedded demo, <a href="https://your-username.github.io/your-repository/" target="_blank">click here</a> to open it in a new tab. The demo in general is quite buggy as it struggles with all the images being drawn on a web application.</p>
     </div>
   </section>
 
@@ -114,5 +118,10 @@
         });
       });
     });
+
+    function showDemo() {
+    var demoContainer = document.getElementById('demoContainer');
+    demoContainer.style.display = 'block';
+    }
   </script>
 </body>
