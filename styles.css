@@ -5,91 +5,87 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-/* Header styling */
-header {
+  }
+  
+  /* Header styling */
+  header {
     background-color: #333;
     color: #fff;
     padding: 1rem;
-}
-
-nav ul {
+  }
+  
+  nav ul {
     list-style-type: none;
     padding: 0;
-}
-
-nav ul li {
+  }
+  
+  nav ul li {
     display: inline;
     margin-right: 1rem;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     color: #fff;
     text-decoration: none;
-}
-
-/* Section and footer styling */
-section {
+  }
+  
+  /* Section and footer styling */
+  section {
     padding: 2rem;
-}
-
-footer {
+  }
+  
+  footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1rem;
-}
-
-/* Project div styling */
-section#Main\ Projects > div {
+  }
+  
+  /* Project div styling */
+  section#Main\ Projects > div {
     border: 2px solid white;
     margin-bottom: 2rem;
     padding: 1rem;
-}
-
-/* Add keyframes for the fade-in animation */
-@keyframes fadeIn {
+  }
+  
+  /* Add keyframes for the fade-in animation */
+  @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
+  }
 
-/* Image styling */
+  /* Image styling */
 img {
-    width: auto;
-    height: auto; /* Maintain original dimensions */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    /*max-width: 1000px; /* Set max dimensions for smaller devices */
+    /*max-height: 1000px;*
     object-fit: cover; /* Ensures the image covers the set dimensions without distortion */
     border: 2px solid red;
     margin-top: 1rem;
     animation: fadeIn 2s ease-in-out;
-}
-
-/* Styling for the image carousel */
-.image-carousel {
+  }
+  
+  /* Styling for the image carousel */
+  .image-carousel {
     position: relative;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Stack the elements vertically */
-}
-
-/* Image styling within the carousel */
-.image-carousel img {
+  }
+  
+  .image-carousel img {
     display: none;
     opacity: 0.5;
     transition: opacity 0.5s ease;
-    margin: 0 auto; /* Center the image */
-}
-
-.image-carousel img.visible {
+    margin: 0 auto;
+  }
+  
+  .image-carousel img.visible {
     display: block;
     opacity: 1;
-    margin: 0 auto; /* Center the image */
-}
-
-/* Arrow button styling */
-button.prev, button.next {
+    margin: 0 auto;
+  }
+  
+  button.prev, button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -98,12 +94,13 @@ button.prev, button.next {
     color: white;
     padding: 10px;
     cursor: pointer;
-}
-
-button.prev {
+  }
+  
+  button.prev {
     left: 10px;
-}
-
-button.next {
+  }
+  
+  button.next {
     right: 10px;
-}
+  }
+  
