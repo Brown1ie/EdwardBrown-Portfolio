@@ -71,9 +71,8 @@
       <p>Link to <a href="https://github.com/Brown1ie/Isometric-Building/tree/main">GitHub</a> repository</p>
       <h3>Play the Demo!</h3>
       <button onclick="showDemo()">Show Demo</button>
-      <div id="demoContainer" style="display: none;">
-        <iframe id="demoIframe" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-        <p>If you’re having trouble interacting with the embedded demo, <a href="https://brown1ie.github.io/WorldSpawner-Web-Demo/" target="_blank">click here</a> to open it in a new tab. The demo in general is quite buggy as it struggles with all the images being drawn on a web application.</p>
+      <div id="demoContainer" style="display: none;"></div>
+      <p>If you’re having trouble interacting with the embedded demo, <a href="https://brown1ie.github.io/WorldSpawner-Web-Demo/" target="_blank">click here</a> to open it in a new tab. The demo in general is quite buggy as it struggles with all the images being drawn on a web application.</p>
       </div>
     </div>
   </section>
@@ -89,45 +88,49 @@
 
   <script>
     function changeImage(button, direction) {
-    const carousel = button.parentElement;
-    const images = carousel.querySelectorAll("img");
-    let currentImageIndex = Array.from(images).findIndex(image => image.classList.contains("visible"));
-    images[currentImageIndex].classList.remove("visible");
-    images[currentImageIndex].classList.add("hidden");
-    currentImageIndex += direction;
-    if (currentImageIndex >= images.length) {
-      currentImageIndex = 0;
-    } else if (currentImageIndex < 0) {
-      currentImageIndex = images.length - 1;
-    }
-    images[currentImageIndex].classList.remove("hidden");
-    images[currentImageIndex].classList.add("visible");
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const carousels = document.querySelectorAll(".image-carousel");
-    carousels.forEach(carousel => {
+      const carousel = button.parentElement;
       const images = carousel.querySelectorAll("img");
-      images.forEach((img, index) => {
-        if (index !== 0) {
-          img.classList.add("hidden");
-        } else {
-          img.classList.add("visible");
-        }
+      let currentImageIndex = Array.from(images).findIndex(image => image.classList.contains("visible"));
+      images[currentImageIndex].classList.remove("visible");
+      images[currentImageIndex].classList.add("hidden");
+      currentImageIndex += direction;
+      if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+      } else if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+      }
+      images[currentImageIndex].classList.remove("hidden");
+      images[currentImageIndex].classList.add("visible");
+    }
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      const carousels = document.querySelectorAll(".image-carousel");
+      carousels.forEach(carousel => {
+        const images = carousel.querySelectorAll("img");
+        images.forEach((img, index) => {
+          if (index !== 0) {
+            img.classList.add("hidden");
+          } else {
+            img.classList.add("visible");
+          }
+        });
       });
     });
-});
-
-function showDemo() {
-  var demoContainer = document.getElementById('demoContainer');
-  var iframe = document.createElement('iframe');
-  iframe.src = "https://brown1ie.github.io/WorldSpawner-Web-Demo/";
-  iframe.width = "800";
-  iframe.height = "600";
-  iframe.frameBorder = "0";
-  iframe.allowFullscreen = true;
-  demoContainer.appendChild(iframe);
-  demoContainer.style.display
-}
+  
+    function showDemo() {
+      const demoContainer = document.getElementById('demoContainer');
+      if (!demoContainer.dataset.loaded) {
+        const iframe = document.createElement('iframe');
+        iframe.src = "https://brown1ie.github.io/WorldSpawner-Web-Demo/";
+        iframe.width = "800";
+        iframe.height = "600";
+        iframe.frameBorder = "0";
+        iframe.allowFullscreen = true;
+        demoContainer.appendChild(iframe);
+        demoContainer.dataset.loaded = "true";
+      }
+      demoContainer.style.display = 'block';
+    }
   </script>
+  
 </body>
