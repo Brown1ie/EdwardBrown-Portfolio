@@ -11,23 +11,27 @@ body {
 header {
     background-color: #3b3f51; /* Darker header */
     color: #fff;
-    padding: 1rem;
+    padding: 0.5rem 1rem; /* Reduce the padding */
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    transition: padding 0.3s;
+    transition: padding 0.3s, font-size 0.3s;
+    display: flex;
+    justify-content: space-between; /* Ensure content is centered */
+    align-items: center; /* Vertically center the content */
 }
 
 header.minimized {
-    padding: 0.5rem;
+    padding: 0.3rem 1rem; /* Reduce the padding even more when minimized */
     font-size: 0.9rem;
 }
 
 body {
-    padding-top: 80px; /* Adjust this to the height of your header */
+    padding-top: 70px; /* Adjust this to the height of your header */
 }
+
 
 
 header h1 {
