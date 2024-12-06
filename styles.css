@@ -79,15 +79,10 @@ img {
     height: auto;
     max-width: 1000px;
     max-height: 600px; /* Maintain aspect ratio */
-    object-fit: cover; 
+    object-fit: contain; 
     border: 2px solid #ddd;
     margin-top: 1rem;
     border-radius: 8px; /* Rounded corners */
-    transition: transform 0.3s, opacity 0.3s ease-in-out;
-}
-
-img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 /* Styling for the image carousel */
