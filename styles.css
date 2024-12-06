@@ -1,86 +1,109 @@
-/* Apply a navy background and white text */
+/* Apply a light background and dark text */
 body {
-    background-color: #005580;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
+    background-color: #f0f0f5; /* Light grey background */
+    color: #333; /* Dark text */
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 /* Header styling */
 header {
-    background-color: #333;
+    background-color: #3b3f51; /* Darker header */
     color: #fff;
     padding: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 1rem;
+    display: flex;
+    justify-content: center; /* Center the navigation */
+    gap: 1.5rem; /* Space between nav items */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
 }
 
-/* Section and footer styling */
+nav ul li a:hover {
+    color: #1e90ff; /* Hover color */
+}
+
+/* Section styling */
 section {
     padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section h2 {
+    border-bottom: 2px solid #1e90ff; /* Bottom border for section headers */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 footer {
-    background-color: #333;
+    background-color: #3b3f51;
     color: #fff;
     text-align: center;
     padding: 1rem;
 }
 
-/* Project div styling */
+/* Project card styling */
 section#Main\ Projects > div {
-    border: 2px solid white;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
+    transition: transform 0.3s;
 }
 
-/* Add keyframes for the fade-in animation */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+section#Main\ Projects > div:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
 }
 
 /* Image styling */
 img {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    max-width: 1200px; /* Set max dimensions for smaller devices */
-    max-height: 1200px;
-    object-fit: cover; /* Ensures the image covers the set dimensions without distortion */
-    border: 2px solid red;
+    height: auto;
+    max-width: 1000px;
+    max-height: 600px; /* Maintain aspect ratio */
+    object-fit: cover; 
+    border: 2px solid #ddd;
     margin-top: 1rem;
-    animation: fadeIn 2s ease-in-out;
+    border-radius: 8px; /* Rounded corners */
+    transition: transform 0.3s, opacity 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 /* Styling for the image carousel */
 .image-carousel {
     position: relative;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100%; /* Ensure it takes full height of its parent */
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
     text-align: center;
 }
 
 .image-carousel img {
     display: none;
-    opacity: 0.5;
+    opacity: 0;
     transition: opacity 0.5s ease;
-    margin: 0 auto; /* Center the image */
 }
 
 .image-carousel img.visible {
@@ -98,6 +121,7 @@ button.prev, button.next {
     color: white;
     padding: 10px;
     cursor: pointer;
+    border-radius: 50%;
 }
 
 button.prev {
@@ -106,4 +130,8 @@ button.prev {
 
 button.next {
     right: 10px;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: #1e90ff;
 }
