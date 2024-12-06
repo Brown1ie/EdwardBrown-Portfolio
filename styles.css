@@ -38,7 +38,7 @@ nav ul {
 
 header.minimized {
     padding: 0.3rem 1rem; /* Reduce the padding even more when minimized */
-    font-size: 0.9rem;
+    /* font-size: 0.9rem; */
 }
 
 nav {
