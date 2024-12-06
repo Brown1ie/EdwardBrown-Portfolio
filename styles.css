@@ -5,36 +5,21 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    padding-top: 80px; /* Adjust this to the height of your header */
 }
 
 /* Header styling */
 header {
     background-color: #3b3f51; /* Darker header */
     color: #fff;
-    padding: 0.75rem 1rem; /* Slightly increased padding */
+    padding: 0.75rem 1.5rem; /* Slightly increased padding */
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
     transition: padding 0.3s, font-size 0.3s;
-    display: flex;
-    justify-content: center; /* Ensure content is centered */
-    align-items: center; /* Vertically center the content */
-}
-
-header.minimized {
-    padding: 0.3rem 1rem; /* Reduce the padding even more when minimized */
-    font-size: 0.9rem;
-}
-
-nav {
-    justify-content: center; /* Center the navigation links */
-    flex: 1; /* Ensure it takes up remaining space */
-}
-
-body {
-    padding-top: 70px; /* Adjust this to the height of your header */
+    text-align: center; /* Center text within the header */
 }
 
 header h1 {
@@ -48,6 +33,17 @@ nav ul {
     display: flex;
     justify-content: center; /* Center the navigation */
     gap: 1.5rem; /* Space between nav items */
+    margin-top: 0.5rem; /* Space below the header */
+}
+
+header.minimized {
+    padding: 0.3rem 1rem; /* Reduce the padding even more when minimized */
+    font-size: 0.9rem;
+}
+
+nav {
+    justify-content: center; /* Center the navigation links */
+    flex: 1; /* Ensure it takes up remaining space */
 }
 
 nav ul li a {
