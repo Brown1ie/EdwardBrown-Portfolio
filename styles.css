@@ -18,13 +18,14 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    transition: padding 0.3s, font-size 0.3s;
+    transition: padding 0.3s, height 0.3s;
     text-align: center; /* Center text within the header */
 }
 
 header h1 {
     margin: 0;
     font-size: 2rem;
+    transition: font-size 0.3s;
 }
 
 nav ul {
@@ -38,12 +39,11 @@ nav ul {
 
 header.minimized {
     padding: 0.3rem 1rem; /* Reduce the padding even more when minimized */
-    /* font-size: 0.9rem; */
+    height: auto; /* Adjust height to auto when minimized */
 }
 
-nav {
-    justify-content: center; /* Center the navigation links */
-    flex: 1; /* Ensure it takes up remaining space */
+header.minimized h1 {
+    font-size: 1.5rem; /* Adjust font size */
 }
 
 nav ul li a {
