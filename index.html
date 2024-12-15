@@ -28,6 +28,30 @@
 
   <section id="Main Projects">
     <h2>Projects</h2>
+
+    <div>
+      <h3>C++ rewrte of Isometric Project - 2023</h3>
+      <p>This project is a rewrite of my simple python Isometric game with building mechanics. The map is randomly generated at a size of 40x40. Noteable changes from the python version include: </p>
+      <ul>
+        <li>I removed the seperate controllable camera system used in the original, opting for camera to be centred around the player. </li>
+        <li>The player now moves with the WASD keys, with the player image updating for the direction the player is facing. </li>
+        <li>To build - left click.</li>
+        <li>Vertical shifting (being able to move "up" and "down" the y axis to give the impression of being a layer above/below) has been removed. This was to simplify gameplay, and to allow more time to be spent on new features</li>
+        <li>New materials were added - Solar block and Teleport Block.</li>
+        <li>The Solar block generates power, which can then be used to place Teleport blocks. These materials are locked until the first objective has been completed.</li>
+        <li>I added a inventory system to select what material to build with, replacing the previous method to swap material which involved using the number keys. The inventory is opened by pressing E, and you can then click on a chosen material, and press E to close the inventory. </li>
+        <li>Added a objective system. The objective menu is visible when opening the inventory. This automaically updates once a listed objective is completed.</li>
+        <li>Standing on the Teleport block is the final objective. This is the "end" of the game, completing the last objective to "Teleport". Currently nothing happens after you stand on the teleport, apart from the objective 4 completing. The intention would be for the game to end or change levels but as only one level exists at this stage of development, nothing happens as trying to switch to a level that doesn't exist would cause the game to crash  </li>
+      </ul>
+      <div class="image-carousel">
+        <img src="https://raw.githubusercontent.com/Brown1ie/EdwardBrown-Portfolio/refs/heads/main/iso%20c%20version%20inventory%20img.png" class="visible">
+        <img src="https://raw.githubusercontent.com/Brown1ie/EdwardBrown-Portfolio/refs/heads/main/iso%20c%20ver.png" class="hidden">
+        <button class="prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <button class="next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <p>Link to <a href="https://github.com/Brown1ie/Isometric-Testing-c-rewrite/tree/master?tab=readme-ov-file">GitHub</a> repository</p>
+    </div>
+
     <div>
       <h3>Python Raycaster - 2023-2024</h3>
       <p>For my computing A-level coursework, I created a raycasting project in python using the Pygame package and assets found online. Designed to replicate the rendering technique of Wolfenstein3D but have the visual style of DOOM 1993, my program has a unique visual design with customisable maps, modes and screen size.Whilst starting as a simple raycasting environment, I later added sprites, randomly generated maps, interactable areas of the map and more. This project achieved me nearly full marks for my coursework.</p>
