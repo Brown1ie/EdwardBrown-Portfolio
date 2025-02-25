@@ -11,11 +11,18 @@
             width: 500px;
             height: 500px;
             margin: 0 auto;
-            border: 2px solid red; /* Temporary border to see the container */
+            border: 2px solid red;
+            background-color: #f0f0f0;  /* Light gray background */
+            position: relative;
         }
         #pyjsdl-canvas {
             display: block;
             margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
         }
     </style>
 </head>
@@ -36,6 +43,9 @@
                 <h3>Isometric Building Game</h3>
                 <div id="game-container">
                     <canvas id="pyjsdl-canvas"></canvas>
+                    <div id="loading-indicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        Loading game...
+                    </div>
                 </div>
                 <p>A simple Isometric building game with controllable camera and building mechanics.</p>
                 <div class="controls-info">
@@ -77,7 +87,7 @@
         </div>
     </div>
 
-    <!-- Add PyJSDL scripts with console logging -->
+    <!-- Add PyJSDL scripts -->
     <script src="https://cdn.jsdelivr.net/npm/pyjsdl@latest/pyjsdl.js"></script>
     <script>
         console.log("Script starting...");
@@ -85,11 +95,26 @@
             console.log("Window loaded");
             try {
                 console.log("Initializing PyJSDL");
-                PyJSDL.init("pyjsdl-canvas");
-                console.log("Loading game");
-                PyJSDL.load("isopythondemo/iso6c.py");
+                PyJSDL.init("pyjsdl-canvas", {
+                    width: 500,
+                    height: 500,
+                    backgroundColor: '#ffffff'  // White background to see if canvas is created
+                });
+                console.log("PyJSDL initialized");
+                
+                // Add error handler
+                PyJSDL.onerror = function(error) {
+                    console.error("PyJSDL error:", error);
+                };
+                
+                console.log("Loading game from:", "isopythondemo/iso6c.py");
+                PyJSDL.load("isopythondemo/iso6c.py").then(() => {
+                    console.log("Game loaded successfully");
+                }).catch(error => {
+                    console.error("Failed to load game:", error);
+                });
             } catch (e) {
-                console.error("Error:", e);
+                console.error("Setup error:", e);
             }
         }
 
