@@ -293,3 +293,27 @@ button.prev:hover, button.next:hover {
 .return-button:hover {
     background-color: #1e90ff;
 }
+
+.modal-info {
+    flex: 1;
+    text-align: left;
+}
+
+.modal-info ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.modal-info ul li {
+    margin-bottom: 0.3rem;
+    color: #666;
+}
+
+.modal-info p {
+    margin: 0.5rem 0;
+}
+
+.modal-info strong {
+    color: #3b3f51;
+}

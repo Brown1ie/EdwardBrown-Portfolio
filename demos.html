@@ -34,7 +34,16 @@
     <div id="demoModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <p>Press 'Esc' key or the Close button to exit the demo</p>
+                <div class="modal-info">
+                    <p>Press 'Esc' key or the Close button to exit the demo</p>
+                    <p><strong>Controls:</strong></p>
+                    <ul>
+                        <li>WASD - Move player</li>
+                        <li>Left Click - Build</li>
+                        <li>E - Open/Close inventory</li>
+                        <li>Click material in inventory to select it</li>
+                    </ul>
+                </div>
                 <button onclick="closeDemo()" class="close-button">Close Demo</button>
             </div>
             <div id="demoContainer"></div>
