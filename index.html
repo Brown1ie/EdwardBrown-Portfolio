@@ -159,6 +159,7 @@
       iframe.height = "600";
       iframe.frameBorder = "0";
       iframe.allowFullscreen = true;
+      iframe.tabIndex = "1";  // Make iframe focusable
       
       // Clear container and add new iframe
       demoContainer.innerHTML = '';
@@ -166,6 +167,11 @@
       
       // Show modal
       modal.style.display = 'block';
+      
+      // Focus the iframe after a short delay to ensure it's loaded
+      setTimeout(() => {
+        iframe.focus();
+      }, 100);
     }
 
     function closeDemo() {

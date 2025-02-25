@@ -157,21 +157,26 @@ button.prev:hover, button.next:hover {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1001;
+  overflow: auto;
 }
 
 .modal-content {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #fff;
-  margin: 2% auto;
   padding: 20px;
   width: 90%;
   max-width: 850px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 95vh;
+  overflow-y: auto;
 }
 
 .modal-header {
@@ -212,4 +217,10 @@ button.prev:hover, button.next:hover {
 #demoContainer iframe {
   max-width: 100%;
   border-radius: 4px;
+  outline: none; /* Removes the focus outline if you don't want it visible */
+}
+
+/* Optional: Add a subtle highlight when iframe is focused */
+#demoContainer iframe:focus {
+  box-shadow: 0 0 0 2px #1e90ff33;
 }
