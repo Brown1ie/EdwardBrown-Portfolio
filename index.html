@@ -95,8 +95,7 @@
       <h3>Play the Demo!</h3>
       <button onclick="showDemo()">Show Demo</button>
       <div id="demoContainer" style="display: none;"></div>
-      <p>If you’re having trouble interacting with the embedded demo, <a href="https://brown1ie.github.io/WorldSpawner-Web-Demo/" target="_blank">click here</a> to open it in a new tab. The demo in general is quite buggy as it struggles with all the images being drawn on a web application. The program works much better once downloaded.</p>
-      </div>
+      <p>If you're having trouble interacting with the embedded demo, <a href="https://brown1ie.github.io/WorldSpawner-Web-Demo/" target="_blank">click here</a> to open it in a new tab. The demo in general is quite buggy as it struggles with all the images being drawn on a web application. The program works much better once downloaded.</p>
     </div>
   </section>
 
@@ -142,6 +141,8 @@
   
     function showDemo() {
       const demoContainer = document.getElementById('demoContainer');
+      const button = document.querySelector('button');
+      
       if (!demoContainer.dataset.loaded) {
         const iframe = document.createElement('iframe');
         iframe.src = "https://brown1ie.github.io/WorldSpawner-Web-Demo/";
@@ -152,7 +153,23 @@
         demoContainer.appendChild(iframe);
         demoContainer.dataset.loaded = "true";
       }
+      
       demoContainer.style.display = 'block';
+      button.textContent = 'Hide Demo';
+      button.setAttribute('onclick', 'hideDemo()');
+    }
+
+    function hideDemo() {
+      const demoContainer = document.getElementById('demoContainer');
+      const button = document.querySelector('button');
+      
+      // Remove the iframe to stop the demo completely
+      demoContainer.innerHTML = '';
+      demoContainer.dataset.loaded = '';
+      demoContainer.style.display = 'none';
+      
+      button.textContent = 'Show Demo';
+      button.setAttribute('onclick', 'showDemo()');
     }
   </script>
   
