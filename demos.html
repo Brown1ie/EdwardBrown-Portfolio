@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edward Brown - Demos</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add this to ensure the game container is visible */
+        #game-container {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            border: 2px solid red; /* Temporary border to see the container */
+        }
+        #pyjsdl-canvas {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -64,12 +77,20 @@
         </div>
     </div>
 
-    <!-- Add PyJSDL scripts -->
+    <!-- Add PyJSDL scripts with console logging -->
     <script src="https://cdn.jsdelivr.net/npm/pyjsdl@latest/pyjsdl.js"></script>
     <script>
+        console.log("Script starting...");
         window.onload = function() {
-            PyJSDL.init("pyjsdl-canvas");
-            PyJSDL.load("isopythondemo/iso6c.py");
+            console.log("Window loaded");
+            try {
+                console.log("Initializing PyJSDL");
+                PyJSDL.init("pyjsdl-canvas");
+                console.log("Loading game");
+                PyJSDL.load("isopythondemo/iso6c.py");
+            } catch (e) {
+                console.error("Error:", e);
+            }
         }
 
         function openDemo(demoUrl) {

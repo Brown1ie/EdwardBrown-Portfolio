@@ -10,6 +10,28 @@ icon_img= pygame.image.load('assets/bluetriangle.png')
 icon_img.set_colorkey((0, 0, 0))
 water= pygame.image.load('assets/water.png')
 water.set_colorkey((0, 0, 0))
+grass_img = pygame.image.load('assets/grass.png').convert()
+grass_img.set_colorkey((0, 0, 0))
+stone_img = pygame.image.load('assets/stone.png').convert()
+stone_img.set_colorkey((0, 0, 0))
+purplestone_img = pygame.image.load('assets/purplestone.png').convert()
+purplestone_img.set_colorkey((0, 0, 0))
+greenstone_img = pygame.image.load('assets/greenstone.png').convert()
+greenstone_img.set_colorkey((0, 0, 0))
+bluestone_img = pygame.image.load('assets/bluestone.png').convert()
+bluestone_img.set_colorkey((0, 0, 0))
+sand_img = pygame.image.load('assets/sand.png').convert()
+sand_img.set_colorkey((0, 0, 0))
+dirt_img = pygame.image.load('assets/dirt.png').convert()
+dirt_img.set_colorkey((0, 0, 0))
+blue_img = pygame.image.load('assets/blue.png').convert()
+blue_img.set_colorkey((0, 0, 0))
+tree_img = pygame.image.load('assets/tree.png').convert()
+tree_img.set_colorkey((0, 0, 0))
+house_img = pygame.image.load('assets/house.png').convert()
+house_img.set_colorkey((0, 0, 0))
+cactus_img = pygame.image.load('assets/cactus.png').convert()
+cactus_img.set_colorkey((0, 0, 0))
 GrassActive=False
 StoneActive=False
 SandActive=False
@@ -212,30 +234,6 @@ def Main(display,clock):
     global YELLOWGO
     world = pygame.Surface((2000,2000)) # Create Map Surface
     world.fill(colors["BLACK"]) # Fill Map Surface Black
-    grass_img = pygame.image.load('assets/grass.png').convert()
-    grass_img.set_colorkey((0, 0, 0))
-    stone_img = pygame.image.load('assets/stone.png').convert()
-    stone_img.set_colorkey((0, 0, 0))
-    purplestone_img = pygame.image.load('assets/purplestone.png').convert()
-    purplestone_img.set_colorkey((0, 0, 0))
-    greenstone_img = pygame.image.load('assets/greenstone.png').convert()
-    greenstone_img.set_colorkey((0, 0, 0))
-    bluestone_img = pygame.image.load('assets/bluestone.png').convert()
-    bluestone_img.set_colorkey((0, 0, 0))
-    sand_img = pygame.image.load('assets/sand.png').convert()
-    sand_img.set_colorkey((0, 0, 0))
-    dirt_img = pygame.image.load('assets/dirt.png').convert()
-    dirt_img.set_colorkey((0, 0, 0))
-    blue_img = pygame.image.load('assets/blue.png').convert()
-    blue_img.set_colorkey((0, 0, 0))
-    tree_img = pygame.image.load('assets/tree.png').convert()
-    tree_img.set_colorkey((0, 0, 0))
-    house_img = pygame.image.load('assets/house.png').convert()
-    house_img.set_colorkey((0, 0, 0))
-    cactus_img = pygame.image.load('assets/cactus.png').convert()
-    cactus_img.set_colorkey((0, 0, 0))
-    stonetype=[stone_img,purplestone_img,greenstone_img,bluestone_img]
-    blocklist=[grass_img,sand_img,stone_img]
     for x in range(10):
         pygame.draw.rect(world,colors["BLUE"],((x*100,x*100),(20,20))) # Put Blue Rectagles On Map Surface    
     player = Player() # Initialize Player Class
