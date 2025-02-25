@@ -21,9 +21,21 @@
         <div class="demo-grid">
             <div class="demo-tile">
                 <h3>Isometric Building Game</h3>
-                <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Example.png" alt="Isometric Game">
+                <div id="game-container">
+                    <canvas id="pyjsdl-canvas"></canvas>
+                </div>
                 <p>A simple Isometric building game with controllable camera and building mechanics.</p>
-                <button onclick="openDemo('https://brown1ie.github.io/WorldSpawner-Web-Demo/')">Try Demo</button>
+                <div class="controls-info">
+                    <p><strong>Controls:</strong></p>
+                    <ul>
+                        <li>WASD - Move player</li>
+                        <li>Arrow keys - Move camera</li>
+                        <li>To build - left click</li>
+                        <li>To move up - space bar</li>
+                        <li>To move down - shift key</li>
+                        <li>To swap material - press 1, 2 or 3</li>
+                    </ul>
+                </div>
             </div>
             <!-- Add more demo tiles as needed -->
         </div>
@@ -52,7 +64,14 @@
         </div>
     </div>
 
+    <!-- Add PyJSDL scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/pyjsdl@latest/pyjsdl.js"></script>
     <script>
+        window.onload = function() {
+            PyJSDL.init("pyjsdl-canvas");
+            PyJSDL.load("isopythondemo/iso6c.py");
+        }
+
         function openDemo(demoUrl) {
             const modal = document.getElementById('demoModal');
             const demoContainer = document.getElementById('demoContainer');

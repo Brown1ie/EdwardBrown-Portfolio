@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Isometric Builder</title>
+    <style>
+        #game-container {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="pyjsdl-canvas"></canvas>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/pyjsdl@latest/pyjsdl.js"></script>
+    <script>
+        window.onload = function() {
+            PyJSDL.init("pyjsdl-canvas");
+            // Load and run your game
+            PyJSDL.load("iso6c.py");
+        }
+    </script>
+</body>
+</html>

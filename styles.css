@@ -317,3 +317,15 @@ button.prev:hover, button.next:hover {
 .modal-info strong {
     color: #3b3f51;
 }
+
+#game-container {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+}
