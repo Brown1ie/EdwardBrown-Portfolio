@@ -93,9 +93,18 @@
       </div>
       <p>Link to <a href="https://github.com/Brown1ie/Isometric-Building/tree/main">GitHub</a> repository</p>
       <h3>Play the Demo!</h3>
-      <button onclick="showDemo()">Show Demo</button>
-      <div id="demoContainer" style="display: none;"></div>
-      <p>If you're having trouble interacting with the embedded demo, <a href="https://brown1ie.github.io/WorldSpawner-Web-Demo/" target="_blank">click here</a> to open it in a new tab. The demo in general is quite buggy as it struggles with all the images being drawn on a web application. The program works much better once downloaded.</p>
+      <button onclick="openDemo()">Open Demo</button>
+      
+      <!-- New modal container -->
+      <div id="demoModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p>Press 'Esc' key or the Close button to exit the demo</p>
+            <button onclick="closeDemo()" class="close-button">Close Demo</button>
+          </div>
+          <div id="demoContainer"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -139,38 +148,41 @@
       });
     });
   
-    function showDemo() {
+    function openDemo() {
+      const modal = document.getElementById('demoModal');
       const demoContainer = document.getElementById('demoContainer');
-      const button = document.querySelector('button');
       
-      if (!demoContainer.dataset.loaded) {
-        const iframe = document.createElement('iframe');
-        iframe.src = "https://brown1ie.github.io/WorldSpawner-Web-Demo/";
-        iframe.width = "800";
-        iframe.height = "600";
-        iframe.frameBorder = "0";
-        iframe.allowFullscreen = true;
-        demoContainer.appendChild(iframe);
-        demoContainer.dataset.loaded = "true";
-      }
+      // Create and load iframe
+      const iframe = document.createElement('iframe');
+      iframe.src = "https://brown1ie.github.io/WorldSpawner-Web-Demo/";
+      iframe.width = "800";
+      iframe.height = "600";
+      iframe.frameBorder = "0";
+      iframe.allowFullscreen = true;
       
-      demoContainer.style.display = 'block';
-      button.textContent = 'Hide Demo';
-      button.setAttribute('onclick', 'hideDemo()');
+      // Clear container and add new iframe
+      demoContainer.innerHTML = '';
+      demoContainer.appendChild(iframe);
+      
+      // Show modal
+      modal.style.display = 'block';
     }
 
-    function hideDemo() {
+    function closeDemo() {
+      const modal = document.getElementById('demoModal');
       const demoContainer = document.getElementById('demoContainer');
-      const button = document.querySelector('button');
       
-      // Remove the iframe to stop the demo completely
+      // Clear iframe and hide modal
       demoContainer.innerHTML = '';
-      demoContainer.dataset.loaded = '';
-      demoContainer.style.display = 'none';
-      
-      button.textContent = 'Show Demo';
-      button.setAttribute('onclick', 'showDemo()');
+      modal.style.display = 'none';
     }
+
+    // Add escape key listener
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeDemo();
+      }
+    });
   </script>
   
 
