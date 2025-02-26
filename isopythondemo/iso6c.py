@@ -20,6 +20,7 @@ greenstone_img = pygame.image.load('assets/greenstone.png').convert()
 greenstone_img.set_colorkey((0, 0, 0))
 bluestone_img = pygame.image.load('assets/bluestone.png').convert()
 bluestone_img.set_colorkey((0, 0, 0))
+stonetype=[stone_img,purplestone_img,greenstone_img,bluestone_img]
 sand_img = pygame.image.load('assets/sand.png').convert()
 sand_img.set_colorkey((0, 0, 0))
 dirt_img = pygame.image.load('assets/dirt.png').convert()
@@ -47,6 +48,7 @@ GREEN=(0,255,0)
 LIGHTBLUE=(44,87,93)
 GREY=(128,128,128)
 YELLOW=(255,255,0)
+BLACK=(0,0,0)
 grassblockpositions = []
 stoneblockpositions = []
 sandblockpositions = []
