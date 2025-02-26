@@ -6,13 +6,12 @@
     <title>Edward Brown - Demos</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Add this to ensure the game container is visible */
         #game-container {
             width: 500px;
             height: 500px;
             margin: 0 auto;
             border: 2px solid red;
-            background-color: #f0f0f0;  /* Light gray background */
+            background-color: #f0f0f0;
             position: relative;
         }
         #pyjsdl-canvas {
@@ -25,6 +24,9 @@
             background-color: white;
         }
     </style>
+    
+    <!-- Load PyJSDL in the head with defer attribute -->
+    <script src="https://cdn.jsdelivr.net/npm/pyjsdl@0.5/pyjsdl.js" defer></script>
 </head>
 <body>
     <header>
@@ -60,12 +62,10 @@
                     </ul>
                 </div>
             </div>
-            <!-- Add more demo tiles as needed -->
         </div>
         <button class="return-button" onclick="window.location.href='index.html'">Return to Portfolio</button>
     </section>
 
-    <!-- Modal container -->
     <div id="demoModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,36 +87,57 @@
         </div>
     </div>
 
-    <!-- Add PyJSDL scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/pyjsdl@latest/pyjsdl.js"></script>
     <script>
-        console.log("Script starting...");
-        window.onload = function() {
-            console.log("Window loaded");
-            try {
-                console.log("Initializing PyJSDL");
-                PyJSDL.init("pyjsdl-canvas", {
-                    width: 500,
-                    height: 500,
-                    backgroundColor: '#ffffff'  // White background to see if canvas is created
-                });
-                console.log("PyJSDL initialized");
-                
-                // Add error handler
-                PyJSDL.onerror = function(error) {
-                    console.error("PyJSDL error:", error);
-                };
-                
-                console.log("Loading game from:", "isopythondemo/iso6c.py");
-                PyJSDL.load("isopythondemo/iso6c.py").then(() => {
-                    console.log("Game loaded successfully");
-                }).catch(error => {
-                    console.error("Failed to load game:", error);
-                });
-            } catch (e) {
-                console.error("Setup error:", e);
+        // Wait until both the page and PyJSDL are fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("DOM loaded, checking for PyJSDL...");
+            
+            // Function to check if PyJSDL is loaded
+            function checkPyJSDL() {
+                if (typeof PyJSDL !== 'undefined') {
+                    console.log("PyJSDL found, initializing game...");
+                    initGame();
+                } else {
+                    console.log("PyJSDL not found yet, waiting...");
+                    setTimeout(checkPyJSDL, 100); // Check again in 100ms
+                }
             }
-        }
+            
+            // Initialize the game once PyJSDL is available
+            function initGame() {
+                try {
+                    console.log("Initializing PyJSDL");
+                    PyJSDL.init("pyjsdl-canvas", {
+                        width: 500,
+                        height: 500,
+                        backgroundColor: '#ffffff'
+                    });
+                    console.log("PyJSDL initialized");
+                    
+                    // Add error handler
+                    PyJSDL.onerror = function(error) {
+                        console.error("PyJSDL error:", error);
+                        document.getElementById('loading-indicator').textContent = 'Error loading game. Check console for details.';
+                    };
+                    
+                    // Make sure path is correct relative to demos.html
+                    console.log("Loading game from:", "iso6c.py");
+                    PyJSDL.load("isopythondemo/iso6c.py").then(() => {
+                        console.log("Game loaded successfully");
+                        document.getElementById('loading-indicator').style.display = 'none';
+                    }).catch(error => {
+                        console.error("Failed to load game:", error);
+                        document.getElementById('loading-indicator').textContent = 'Failed to load game. Check console for details.';
+                    });
+                } catch (e) {
+                    console.error("Setup error:", e);
+                    document.getElementById('loading-indicator').textContent = 'Setup error. Check console for details.';
+                }
+            }
+            
+            // Start checking for PyJSDL
+            checkPyJSDL();
+        });
 
         function openDemo(demoUrl) {
             const modal = document.getElementById('demoModal');
@@ -156,4 +177,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
