@@ -25,8 +25,7 @@
         }
     </style>
     
-    <!-- Load PyJSDL in the head with defer attribute -->
-    <script src="js/pyjsdl" defer></script>
+    
 </head>
 <body>
     <header>
@@ -42,14 +41,11 @@
         <h2>Demos</h2>
         <div class="demo-grid">
             <div class="demo-tile">
-                <h3>Isometric Building Game</h3>
-                <div id="game-container">
-                    <canvas id="pyjsdl-canvas"></canvas>
-                    <div id="loading-indicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                        Loading game...
-                    </div>
-                </div>
+                <h3>Isometric Building Game - 2023</h3>
+                <img src="https://github.com/Brown1ie/Isometric-Building/raw/main/Example.png" alt="Isometric Game">
                 <p>A simple Isometric building game with controllable camera and building mechanics.</p>
+                <button onclick="openDemo('https://brown1ie.github.io/WorldSpawner-Web-Demo/')">Try Demo</button>
+            
                 <div class="controls-info">
                     <p><strong>Controls:</strong></p>
                     <ul>
@@ -88,56 +84,7 @@
     </div>
 
     <script>
-        // Wait until both the page and PyJSDL are fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("DOM loaded, checking for PyJSDL...");
-            
-            // Function to check if PyJSDL is loaded
-            function checkPyJSDL() {
-                if (typeof PyJSDL !== 'undefined') {
-                    console.log("PyJSDL found, initializing game...");
-                    initGame();
-                } else {
-                    console.log("PyJSDL not found yet, waiting...");
-                    setTimeout(checkPyJSDL, 100); // Check again in 100ms
-                }
-            }
-            
-            // Initialize the game once PyJSDL is available
-            function initGame() {
-                try {
-                    console.log("Initializing PyJSDL");
-                    PyJSDL.init("pyjsdl-canvas", {
-                        width: 500,
-                        height: 500,
-                        backgroundColor: '#ffffff'
-                    });
-                    console.log("PyJSDL initialized");
-                    
-                    // Add error handler
-                    PyJSDL.onerror = function(error) {
-                        console.error("PyJSDL error:", error);
-                        document.getElementById('loading-indicator').textContent = 'Error loading game. Check console for details.';
-                    };
-                    
-                    // Make sure path is correct relative to demos.html
-                    console.log("Loading game from:", "iso6c.py");
-                    PyJSDL.load("isopythondemo/iso6c.py").then(() => {
-                        console.log("Game loaded successfully");
-                        document.getElementById('loading-indicator').style.display = 'none';
-                    }).catch(error => {
-                        console.error("Failed to load game:", error);
-                        document.getElementById('loading-indicator').textContent = 'Failed to load game. Check console for details.';
-                    });
-                } catch (e) {
-                    console.error("Setup error:", e);
-                    document.getElementById('loading-indicator').textContent = 'Setup error. Check console for details.';
-                }
-            }
-            
-            // Start checking for PyJSDL
-            checkPyJSDL();
-        });
+        
 
         function openDemo(demoUrl) {
             const modal = document.getElementById('demoModal');
